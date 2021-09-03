@@ -14,9 +14,7 @@ const App = ({}) => {
 
   useEffect(() => {
     axios
-      .get(
-        "https://api.themoviedb.org/3/movie/550?api_key=cc11a5a309558d55e3a5947bb272b95b"
-      )
+      .get("https://api.themoviedb.org/3/movie/550?api_key=" + key)
       .then((response) => {
         setMovie(response.data);
         console.log(response.data);
@@ -24,8 +22,16 @@ const App = ({}) => {
   }, []);
 
   return (
-    <div>
-      <Movie movie={movie} />
+    <div className="Movies">
+      <div>
+        <Movie movie={movie} />
+      </div>
+      <div>
+        <Movie movie={movie} />
+      </div>
+      <div>
+        <Movie movie={movie} />
+      </div>
     </div>
   );
 };

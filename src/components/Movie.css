@@ -1,0 +1,25 @@
+body {
+  background-color: #2b2e4a;
+  max-height: 100%;
+}
+.Movies {
+  display: flex;
+  flex-wrap: nowrap;
+  max-width: 90%;
+}
+
+.Movie {
+  margin: 1em;
+  max-width: 10em;
+  background-color: #903749;
+  border-radius: 1.5em;
+  text-align: center;
+}
+
+img {
+  max-width: 100%;
+  border-radius: 0 0 1.5em 1.5em;
+  position: relative;
+  left: 0;
+  top: 0.25em;
+}
