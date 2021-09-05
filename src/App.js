@@ -1,9 +1,12 @@
-import React from "react";
+import React, { useState } from "react";
 import Row from "./components/Row";
+import Search from "./components/Search";
 import requests from "./requests";
 import "./App.css";
 
 const App = () => {
+  const [filter, setFilter] = useState("");
+
   const trendingMovies =
     "https://api.themoviedb.org/3/trending/movie/week?api_key=";
   const trendingTVShows =
@@ -13,6 +16,10 @@ const App = () => {
 
   return (
     <div>
+      <div>
+        <Search filter={filter} />
+      </div>
+
       <Row title="Trending movies" fetchUrl={trendingMovies} />
       <Row title="Trending TV shows" fetchUrl={trendingTVShows} />
       <Row title="Top Rated movies" fetchUrl={topRatedMovies} />
