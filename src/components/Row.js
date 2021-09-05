@@ -3,16 +3,17 @@ import axios from "axios";
 import RowItem from "./RowItem";
 
 const Row = ({ title, fetchUrl }) => {
-  const key = "cc11a5a309558d55e3a5947bb272b95b";
   const posterPath = "https://image.tmdb.org/t/p/original/";
 
   const [items, setItems] = useState([]);
 
   useEffect(() => {
-    axios.get(fetchUrl + key).then((response) => {
-      setItems(response.data.results);
-      console.log(response.data);
-    });
+    axios
+      .get(fetchUrl + process.env.REACT_APP_MOVIEDB_API_KEY)
+      .then((response) => {
+        setItems(response.data.results);
+        console.log(response.data);
+      });
   }, []);
 
   return (
