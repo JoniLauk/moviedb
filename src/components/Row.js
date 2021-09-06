@@ -1,20 +1,17 @@
-import React, { useState, useEffect, props } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import RowItem from "./RowItem";
 
 const Row = ({ title, fetchUrl }) => {
-  const posterPath = "https://image.tmdb.org/t/p/original/";
-
   const [items, setItems] = useState([]);
+  const posterPath = "https://image.tmdb.org/t/p/original/";
 
   useEffect(() => {
     axios
       .get(fetchUrl + process.env.REACT_APP_MOVIEDB_API_KEY)
       .then((response) => {
         setItems(response.data.results);
-        console.log(response.data);
       });
-  }, []);
+  }, [fetchUrl]);
 
   return (
     <div className="row">
